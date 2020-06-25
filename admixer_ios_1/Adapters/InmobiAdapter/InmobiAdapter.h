@@ -4,7 +4,7 @@
 //
 //  Created by Eric Yeohoon Yoon on 13. 1. 28..
 //
-// v6.1.2
+// v7.0.4
 
 #import <UIKit/UIKit.h>
 #import "AdMixerAdAdapter.h"

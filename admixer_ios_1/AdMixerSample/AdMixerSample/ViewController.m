@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "AdamAdapter.h"
+#import "AdfitAdapter.h"
 #import "AdmobAdapter.h"
 #import "CaulyAdapter.h"
 #import "TAdAdapter.h"
@@ -24,7 +24,7 @@
 {
     [super viewDidLoad];
 	
-	[AdMixer registerUserAdAdapterNameWithAppCode:AMA_ADAM cls:[AdamAdapter class] appCode:@"adam_app_code"];
+	[AdMixer registerUserAdAdapterNameWithAppCode:AMA_ADFIT cls:[AdfitAdapter class] appCode:@"adam_app_code"];
 	[AdMixer registerUserAdAdapterNameWithAppCode:AMA_ADMOB cls:[AdmobAdapter class] appCode:@"admob_app_code"];
 	[AdMixer registerUserAdAdapterNameWithAppCode:AMA_CAULY cls:[CaulyAdapter class] appCode:@"cauly_app_code"];
 	[AdMixer registerUserAdAdapterNameWithAppCode:AMA_TAD cls:[TAdAdapter class] appCode:@"tad_app_code"];
@@ -48,7 +48,7 @@
 	adInfo.axKey = ADMIXER_KEY;
 	adInfo.rtbVerticalAlign = AdMixerRTBVAlignCenter;
 	
-	_adView = [[AdMixerView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+	_adView = [[AdMixerView alloc] initWithFrame:CGRectMake(0, 20, 320, 50)];
 	_adView.delegate = self;
 	_adView.adSize = AXBannerSize_Default;
 	[self.view addSubview:_adView];

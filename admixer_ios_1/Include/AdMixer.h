@@ -13,7 +13,7 @@
 #define AMA_HOUSE_AD				(@"admixer")
 #define AMA_ADMIXER_RTB				(@"admixerrtb")
 #define AMA_ADMIXER_RTB_NCPI		(@"admixerrtb_ncpi")
-#define AMA_ADAM					(@"adam")
+#define AMA_ADFIT					(@"adam")
 #define AMA_ADMOB					(@"admob")
 #define AMA_CAULY					(@"cauly")
 #define AMA_TAD						(@"tad")

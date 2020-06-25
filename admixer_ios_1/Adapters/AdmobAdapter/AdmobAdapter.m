@@ -73,7 +73,7 @@ static NSArray * g_testDevices = nil;
         _adView.delegate = self;
         _adView.rootViewController = self.baseViewController;
         _adView.hidden = YES;
-        _adView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        //_adView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self.baseView addSubview:_adView];
 	} else {
         _interstitial = [[GADInterstitial alloc] initWithAdUnitID:self.appCode];

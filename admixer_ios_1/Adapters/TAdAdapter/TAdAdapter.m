@@ -173,6 +173,15 @@
 			case NO_AD:
 				errorMsg = @"<Tad Error> 광고 서버에서 송출 가능한 광고가 없는 경우 10초후에 재요청을 합니다.";
 				break;
+            case MISSING_REQUIRED_PARAMETER_ERROR:
+                errorMsg = @"<Tad Error> 광고를 송수신하는 과정에서 필수 파라메터가 누락된 경우";
+                break;
+            case INVAILD_PARAMETER_ERROR:
+                errorMsg = @"<Tad Error> 광고를 송수신하는 과정에서 잘못된 파라메터가 있는 경우";
+                break;
+            case UNSUPPORTED_DEVICE_ERROR:
+                errorMsg = @"<Tad Error> 광고를 송수신하는 과정에서 미지원 단말로 인식되는 경우";
+                break;
 			case CLIENTID_DENIED_ERROR:
 				errorMsg = @"<Tad Error> 지정한 Client ID가 유효하지 않은 경우";
 				break;
@@ -186,7 +195,7 @@
 				errorMsg = @"<Tad Error> 광고의 수신 및 로딩 과정에서 네트워크 오류가 발생한 경우";
 				break;
 			case RECEIVE_AD_ERROR:
-				errorMsg = @"Tad Error 광고를 수신하는 과정에서 에러가 발생한 경우";
+				errorMsg = @"<Tad Error> 광고를 수신하는 과정에서 에러가 발생한 경우";
 				break;
 			case LOAD_ERROR:
 				errorMsg = @"<Tad Error> SDK에서 허용하는 시간 내에 광고를 재요청한 경우";
@@ -197,6 +206,12 @@
 			case INTERNAL_ERROR:
 				errorMsg = @"<Tad Error> 광고의 수신 및 로딩 과정에서 내부적으로 오류가 발생한 경우";
 				break;
+            case ALREADY_SHOWN:
+                errorMsg = @"<Tad Error> 이미 광고가 표시되어있는 경우";
+                break;
+            case NOT_INLINE_SHOW:
+                errorMsg = @"<Tad Error> 배너광고일 경우 show기능 방지";
+                break;
 			default:
 				errorMsg = @"<Tad Error> Unknown Error";
 				break;

@@ -80,6 +80,7 @@
 - (void)fireOnClosedHalfAd;
 - (void)fireOnClickedHalfAdPopupButton; // 하프
 
+- (BOOL)canUseInterstitialAd;
 - (BOOL)canLoadOnly:(BOOL)isBanner;
 - (BOOL)canCloseInterstitial;
 - (BOOL)canUseInterstitialPopupType;

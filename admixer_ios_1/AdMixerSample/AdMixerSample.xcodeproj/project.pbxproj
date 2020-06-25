@@ -24,9 +24,6 @@
 		A407D3151C22481700BE343A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A407D3141C22481700BE343A /* libc++.tbd */; };
 		A407D3171C22482000BE343A /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A407D3161C22482000BE343A /* libz.1.2.5.tbd */; };
 		A407D3191C22486B00BE343A /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A407D3181C22486B00BE343A /* AVKit.framework */; };
-		A42A3C0B1C87F1F7003DC4CD /* AdamAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A42A3BC21C87F1F7003DC4CD /* AdamAdapter.m */; };
-		A42A3C0C1C87F1F7003DC4CD /* AdamAdWrapperView.m in Sources */ = {isa = PBXBuildFile; fileRef = A42A3BC51C87F1F7003DC4CD /* AdamAdWrapperView.m */; };
-		A42A3C0D1C87F1F7003DC4CD /* AdamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A42A3BC91C87F1F7003DC4CD /* AdamManager.m */; };
 		A42A3C0F1C87F1F7003DC4CD /* AdmobAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A42A3BCD1C87F1F7003DC4CD /* AdmobAdapter.m */; };
 		A42A3C111C87F1F7003DC4CD /* CaulyAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A42A3BD21C87F1F7003DC4CD /* CaulyAdapter.m */; };
 		A42A3C121C87F1F7003DC4CD /* libCauly-universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A42A3BD71C87F1F7003DC4CD /* libCauly-universal.a */; };
@@ -41,6 +38,7 @@
 		A42A3C221C87F1F7003DC4CD /* TAdAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A42A3C0A1C87F1F7003DC4CD /* TAdAdapter.m */; };
 		A47A55881E1C95260010A0AD /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47A55871E1C95260010A0AD /* JavaScriptCore.framework */; };
 		A47A558A1E1C952C0010A0AD /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47A55891E1C952C0010A0AD /* CoreMedia.framework */; };
+		A4A4072F203D5A6A0039534D /* AdfitAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A4072E203D5A6A0039534D /* AdfitAdapter.m */; };
 		A4ED1C981D9A67E70039011E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ED1C971D9A67E70039011E /* WebKit.framework */; };
 		A4ED1C9A1D9A67EC0039011E /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ED1C991D9A67EC0039011E /* CoreBluetooth.framework */; };
 		B48E217F1805ACBB0046138B /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48E217E1805ACBB0046138B /* AssetsLibrary.framework */; };
@@ -89,15 +87,6 @@
 		A407D3141C22481700BE343A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		A407D3161C22482000BE343A /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
 		A407D3181C22486B00BE343A /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
-		A42A3BC11C87F1F7003DC4CD /* AdamAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdamAdapter.h; sourceTree = "<group>"; };
-		A42A3BC21C87F1F7003DC4CD /* AdamAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdamAdapter.m; sourceTree = "<group>"; };
-		A42A3BC31C87F1F7003DC4CD /* AdamAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdamAdView.h; sourceTree = "<group>"; };
-		A42A3BC41C87F1F7003DC4CD /* AdamAdWrapperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdamAdWrapperView.h; sourceTree = "<group>"; };
-		A42A3BC51C87F1F7003DC4CD /* AdamAdWrapperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdamAdWrapperView.m; sourceTree = "<group>"; };
-		A42A3BC61C87F1F7003DC4CD /* AdamError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdamError.h; sourceTree = "<group>"; };
-		A42A3BC71C87F1F7003DC4CD /* AdamInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdamInterstitial.h; sourceTree = "<group>"; };
-		A42A3BC81C87F1F7003DC4CD /* AdamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdamManager.h; sourceTree = "<group>"; };
-		A42A3BC91C87F1F7003DC4CD /* AdamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdamManager.m; sourceTree = "<group>"; };
 		A42A3BCC1C87F1F7003DC4CD /* AdmobAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdmobAdapter.h; sourceTree = "<group>"; };
 		A42A3BCD1C87F1F7003DC4CD /* AdmobAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdmobAdapter.m; sourceTree = "<group>"; };
 		A42A3BD01C87F1F7003DC4CD /* Cauly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cauly.h; sourceTree = "<group>"; };
@@ -130,6 +119,8 @@
 		A42A3C0A1C87F1F7003DC4CD /* TAdAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAdAdapter.m; sourceTree = "<group>"; };
 		A47A55871E1C95260010A0AD /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		A47A55891E1C952C0010A0AD /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A4A4072D203D5A6A0039534D /* AdfitAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdfitAdapter.h; sourceTree = "<group>"; };
+		A4A4072E203D5A6A0039534D /* AdfitAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdfitAdapter.m; sourceTree = "<group>"; };
 		A4ED1C971D9A67E70039011E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A4ED1C991D9A67EC0039011E /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		B48E217E1805ACBB0046138B /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -228,7 +219,7 @@
 		A42A3BBF1C87F1F7003DC4CD /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
-				A42A3BC01C87F1F7003DC4CD /* AdamAdapter */,
+				A4A4072C203D5A6A0039534D /* AdfitAdapter */,
 				A42A3BCB1C87F1F7003DC4CD /* AdmobAdapter */,
 				A42A3BCF1C87F1F7003DC4CD /* CaulyAdapter */,
 				A42A3BD81C87F1F7003DC4CD /* Facebook */,
@@ -240,22 +231,6 @@
 			);
 			name = Adapters;
 			path = ../Adapters;
-			sourceTree = "<group>";
-		};
-		A42A3BC01C87F1F7003DC4CD /* AdamAdapter */ = {
-			isa = PBXGroup;
-			children = (
-				A42A3BC11C87F1F7003DC4CD /* AdamAdapter.h */,
-				A42A3BC21C87F1F7003DC4CD /* AdamAdapter.m */,
-				A42A3BC31C87F1F7003DC4CD /* AdamAdView.h */,
-				A42A3BC41C87F1F7003DC4CD /* AdamAdWrapperView.h */,
-				A42A3BC51C87F1F7003DC4CD /* AdamAdWrapperView.m */,
-				A42A3BC61C87F1F7003DC4CD /* AdamError.h */,
-				A42A3BC71C87F1F7003DC4CD /* AdamInterstitial.h */,
-				A42A3BC81C87F1F7003DC4CD /* AdamManager.h */,
-				A42A3BC91C87F1F7003DC4CD /* AdamManager.m */,
-			);
-			path = AdamAdapter;
 			sourceTree = "<group>";
 		};
 		A42A3BCB1C87F1F7003DC4CD /* AdmobAdapter */ = {
@@ -358,6 +333,15 @@
 				A42A3C081C87F1F7003DC4CD /* TadCore.h */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		A4A4072C203D5A6A0039534D /* AdfitAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				A4A4072D203D5A6A0039534D /* AdfitAdapter.h */,
+				A4A4072E203D5A6A0039534D /* AdfitAdapter.m */,
+			);
+			path = AdfitAdapter;
 			sourceTree = "<group>";
 		};
 		B4C42A1715A06CC6007C0069 = {
@@ -512,16 +496,14 @@
 				A42A3C1C1C87F1F7003DC4CD /* ManAdapter.m in Sources */,
 				A42A3C131C87F1F7003DC4CD /* FacebookAdapter.m in Sources */,
 				A42A3C111C87F1F7003DC4CD /* CaulyAdapter.m in Sources */,
-				A42A3C0C1C87F1F7003DC4CD /* AdamAdWrapperView.m in Sources */,
 				A42A3C171C87F1F7003DC4CD /* IAdAdapter.m in Sources */,
 				A42A3C0F1C87F1F7003DC4CD /* AdmobAdapter.m in Sources */,
 				A42A3C221C87F1F7003DC4CD /* TAdAdapter.m in Sources */,
 				A42A3C181C87F1F7003DC4CD /* InmobiAdapter.m in Sources */,
 				A42A3C1A1C87F1F7003DC4CD /* JSONKit.m in Sources */,
-				A42A3C0B1C87F1F7003DC4CD /* AdamAdapter.m in Sources */,
 				B4C42A3315A06CC6007C0069 /* main.m in Sources */,
 				B4C42A3715A06CC6007C0069 /* AppDelegate.m in Sources */,
-				A42A3C0D1C87F1F7003DC4CD /* AdamManager.m in Sources */,
+				A4A4072F203D5A6A0039534D /* AdfitAdapter.m in Sources */,
 				B4C42A3A15A06CC6007C0069 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,8 +533,9 @@
 		B4C42A3E15A06CC6007C0069 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: wusic wee (U28YQ2WT5Z)";
 				COPY_PHASE_STRIP = NO;
@@ -573,15 +556,16 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "932BDE0B-9364-4B2F-9653-4129D61A6063";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = armv7;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
 		B4C42A3F15A06CC6007C0069 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: wusic wee (U28YQ2WT5Z)";
 				COPY_PHASE_STRIP = YES;
@@ -597,17 +581,19 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = armv7;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
 		B4C42A4115A06CC6007C0069 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../Adapters/ShallWeAd\"",
@@ -630,6 +616,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -637,10 +624,12 @@
 		B4C42A4215A06CC6007C0069 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../include\"",
@@ -664,6 +653,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
