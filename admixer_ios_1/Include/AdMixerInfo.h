@@ -40,7 +40,6 @@ typedef enum {
 @property (nonatomic, assign) int halfTimeout;
 @property (nonatomic, assign) AdMixerRTBVAlign rtbVerticalAlign;
 @property (nonatomic, assign) float defaultAdTime;
-@property (nonatomic, assign) BOOL useRTBGPSInfo;
 @property (nonatomic, readonly) AdMixerInterstitialAdType interstitialAdType;
 @property (nonatomic, retain, readonly) AdMixerInterstitialPopupOption *interstitialPopupOption;
 @property (nonatomic, readonly) AdMixerHalfAdType halfAdType;
