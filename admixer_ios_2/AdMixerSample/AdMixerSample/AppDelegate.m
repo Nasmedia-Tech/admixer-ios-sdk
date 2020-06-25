@@ -1,10 +1,6 @@
 //
 //  AppDelegate.m
 //  AdMixerSample
-//
-//  Created by 정건국 on 12. 7. 1..
-//  Copyright (c) 2012년 __MyCompanyName__. All rights reserved.
-//
 
 #import "AppDelegate.h"
 

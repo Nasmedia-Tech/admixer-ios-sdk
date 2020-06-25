@@ -1,10 +1,5 @@
 //
 //  TAdAdapter.m
-//  AdMixerTest
-//
-//  Created by 정건국 on 12. 6. 27..
-//  Copyright (c) 2012년 __MyCompanyName__. All rights reserved.
-//
 
 #import "DawinClickAdapter.h"
 #import "AXLog.h"

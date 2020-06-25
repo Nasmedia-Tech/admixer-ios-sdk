@@ -1,11 +1,5 @@
 //
 //  AdmobAdapter.h
-//  AdMixerTest
-//
-//  Created by 정건국 on 12. 6. 27..
-//  Copyright (c) 2012년 __MyCompanyName__. All rights reserved.
-//
-// v7.28.0
 
 #import <Foundation/Foundation.h>
 #import "AdMixerAdAdapter.h"
@@ -18,7 +12,5 @@
 	GADRequestError * _error;
 	
 }
-
-+ (void)registerTestDevices:(NSArray *)devices;
 
 @end

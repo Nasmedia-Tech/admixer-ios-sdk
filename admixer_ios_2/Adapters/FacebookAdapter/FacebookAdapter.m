@@ -1,10 +1,5 @@
 //
 //  FacebookAdapter.m
-//  AdMixerTest
-//
-//  Created by 원소정 on 2015. 1. 28..
-//
-//
 
 #import "FacebookAdapter.h"
 #import "AXLog.h"
@@ -27,6 +22,9 @@
     self = [super initWithAdInfo:adInfo adConfig:adConfig];
     if(self) {
         _placementID = [self.keyInfo objectForKey:@"placement_id"];
+        
+        BOOL isChildDirected = ([AdMixer getTagForChildDirectedTreatment] > 0)? YES : NO;
+        [FBAdSettings setMixedAudience:isChildDirected];
     }
     return self;
 }

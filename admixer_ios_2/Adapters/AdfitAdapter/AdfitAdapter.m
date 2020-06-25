@@ -1,8 +1,5 @@
 //
 //  AdfitAdapter.m
-//
-//  Created by 원소정 on 18. 2. 19..
-//
 
 #import "AdfitAdapter.h"
 #import "AXLog.h"

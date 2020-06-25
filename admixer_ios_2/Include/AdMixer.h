@@ -18,6 +18,8 @@
 #define ADAPTER_FACEBOOK            (@"facebook")
 #define ADAPTER_MAN                 (@"man")
 #define ADAPTER_TNK                 (@"tnk")
+#define ADAPTER_MOPUB               (@"mopub")
+#define ADAPTER_SMAATO              (@"smaato")
 
 #define AX_ERR_INIT                 (0x80000001)
 #define AX_ERR_ADUNIT               (0x80000002)

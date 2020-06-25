@@ -1,10 +1,5 @@
 //
 //  AdmobAdapter.m
-//  AdMixerTest
-//
-//  Created by 정건국 on 12. 6. 27..
-//  Copyright (c) 2012년 __MyCompanyName__. All rights reserved.
-//
 
 #import "AdmobAdapter.h"
 #import "AXLog.h"
@@ -17,21 +12,12 @@
 
 @implementation AdmobAdapter
 
-static NSArray * g_testDevices = nil;
-
 - (void)dealloc {
     _adunitID = nil;
 	[_adView release];
 	[_interstitial release];
 	
 	[super dealloc];
-}
-
-+ (void)registerTestDevices:(NSArray *)devices {
-	[devices retain];
-	[g_testDevices release];
-    g_testDevices = devices;
-    
 }
 
 - (NSString *)adapterName {
@@ -99,7 +85,6 @@ static NSArray * g_testDevices = nil;
 
 - (void)start {
 	GADRequest * request = [GADRequest request];
-    request.testDevices = g_testDevices;
     request.requestAgent = @"AdMixer";
 	
     if([self.adformat isEqualToString:ADFORMAT_BANNER]) {

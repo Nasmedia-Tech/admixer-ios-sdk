@@ -1,10 +1,5 @@
 //
 //  ManAdapter.m
-//  AdMixerTest
-//
-//  Created by 원소정 on 2015. 12. 10..
-//
-//
 
 #import "ManAdapter.h"
 #import "AXLog.h"
@@ -16,7 +11,12 @@
     _mediaID = nil;
     _sectionID = nil;
     [_adView release];
-    [_interstitialAd release];
+    
+    _appID = nil;
+    _appName = nil;
+    _storeURL = nil;
+    _userAgeLevel = nil;
+    
     [super dealloc];
 }
 
@@ -30,6 +30,18 @@
         _publisherID = [self.keyInfo objectForKey:@"a_publisher"];
         _mediaID = [self.keyInfo objectForKey:@"a_media"];
         _sectionID = [self.keyInfo objectForKey:@"a_section"];
+        
+        _appID = @"";
+        _appName = @"";
+        _storeURL = @"";
+        NSDictionary *adapterInfo = [self.adInfo getAdapterAdInfo:[self adapterName]];
+        if(adapterInfo != nil) {
+            _appID = (NSString *)[adapterInfo objectForKey:@"appID"];
+            _appName = (NSString *)[adapterInfo objectForKey:@"appName"];
+            _storeURL = (NSString *)[adapterInfo objectForKey:@"storeURL"];
+        }
+        
+        _userAgeLevel = ([AdMixer getTagForChildDirectedTreatment] > 0)? @"0":@"1";
     }
     return self;
 }
@@ -47,28 +59,22 @@
     
     if([self.adformat isEqualToString:ADFORMAT_BANNER]) {
         if(self.isInterstitial == 0) {
-            _adView = [[ADBanner alloc] initWithFrame:CGRectMake(0, 0, self.baseView.frame.size.width, MAN_BANNER_AD_HEIGHT)];
-            [_adView publisherID:_publisherID mediaID:_mediaID sectionID:_sectionID];
-            _adView.delegate = self;
-            _adView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+            _adView = [[ManBanner alloc] initWithFrame:CGRectMake(0, 0, self.baseView.frame.size.width, self.baseView.frame.size.height)];
+            _adView.bannerDelegate = self;
+            [_adView userAgeLevel:_userAgeLevel];
             
-            //광고 작동 세팅
-            [_adView useReachMedia:NO];
-            [_adView useGotoSafari:YES];
-            
-            //유저 정보 세팅
-            _adView.userPositionAgree = @"0";
-            
-            _adView.hidden = YES;
-            
-            [self.baseView addSubview:_adView];
+            [_adView appID:_appID appName:_appName storeURL:_storeURL];
+            [_adView publisherID:_publisherID mediaID:_mediaID sectionID:_sectionID x:0 y:0 width:self.baseView.frame.size.width height:self.baseView.frame.size.height type:@"0"];
             
         }else {
-            _interstitialAd = [ManInterstitial shareInstance];
+            CGRect deviceFrame = [[UIScreen mainScreen] bounds];
+            _interstitialAd = [[ManBanner alloc] initWithFrame:CGRectMake(0, 0, deviceFrame.size.width, deviceFrame.size.height)];
+            _interstitialAd.interDelegate = self;
+            [_interstitialAd userAgeLevel:_userAgeLevel];
             
-            [_interstitialAd publisherID:_publisherID mediaID:_mediaID sectionID:_sectionID];
-            _interstitialAd.delegate = self;
-            _interstitialAd.userPositionAgree = @"0";
+            [_interstitialAd appID:_appID appName:_appName storeURL:_storeURL];
+            [_interstitialAd publisherID:_publisherID mediaID:_mediaID sectionID:_sectionID viewType:@"0"];
+        
         }
     }else {
         return NO;
@@ -80,7 +86,7 @@
 - (void)start {
     if([self.adformat isEqualToString:ADFORMAT_BANNER]) {
         if(self.isInterstitial == 0) {
-            [_adView startBannerAd];
+            [_adView startBanner];
         } else {
             [_interstitialAd startInterstitial];
         }
@@ -89,14 +95,14 @@
 
 - (void)stop {
     if(_adView) {
-        [_adView removeFromSuperview];
-        [_adView stopBannerAd];
-        _adView.delegate = nil;
-        [_adView release];
+        _adView.bannerDelegate = nil;
+        [_adView stopBanner];
         _adView = nil;
     }
+    
     if(_interstitialAd) {
-        _interstitialAd.delegate = nil;
+        _interstitialAd.interDelegate = nil;
+        [_interstitialAd stopInterstitial];
         _interstitialAd = nil;
     }
 }
@@ -109,112 +115,50 @@
     return NO;
 }
 
-#pragma ADBannerDelegate
-- (void) adBannerClick:(ADBanner*)adBanner {
-    // 배너 광고 클릭
-    AX_LOG(AXLogLevelDebug, @"MAN - adBannerClick");
-}
-- (void) adBannerParsingEnd:(ADBanner*)adBanner {
-    // 배너광고 파싱 완료
-    AX_LOG(AXLogLevelDebug, @"MAN - adBannerParsingEnd");
-}
--(void) didReceiveAd:(ADBanner*)adBanner chargedAdType:(BOOL)bChargedAdType {
-    // 배너 광고의 수신 성공 및 유료/무료
+#pragma - ManBannerDelegate, ManInterstitialDelegate
+- (void)didFailReceiveAd:(ManBanner *)adBanner errorType:(NSInteger)errorType {
+    NSString *errorMsg = @"";
+    switch (errorType) {
+        case NewManAdSuccess :
+            errorMsg = @"NewManAdSuccess (0)";
+            break;
+        case NewManAdClick :
+            errorMsg = @"NewManAdClick (201)";
+            break;
+        case NewManAdClose :
+            errorMsg = @"NewManAdClose (202)";
+        default :
+            errorMsg = [NSString stringWithFormat:@"Error (%ld)", (long)errorType];
+            break;
+    }
+    AX_LOG(AXLogLevelDebug, @"MAN - didFailReceiveAd (%@)", errorMsg);
     
-    _adView.hidden = NO;
-    
-    NSString *chargedAdType = nil;
-    if (bChargedAdType) {
-        chargedAdType = @"유료";
-    } else {
-        chargedAdType = @"무료";
+    // 광고로딩 성공시
+    if(errorType == NewManAdSuccess) {
+        if(self.isInterstitial == 0) {
+            [self.baseView addSubview:_adView];
+            [self fireSucceededToReceiveAd];
+        }else {
+            [self.baseView addSubview:_interstitialAd];
+            [self fireSucceededToReceiveAd];
+            [self fireDisplayedInterstitialAd];
+        }
     }
     
-    AX_LOG(AXLogLevelDebug, @"MAN - didReceiveAd (%@)", chargedAdType);
-    [self fireSucceededToReceiveAd];
-}
-- (void) didFailReceiveAd:(ADBanner*)adBanner errorType:(NSInteger)errorType {
-    // 배너 광고 수신 실패
-    // errorTyped은 ManAdDefine.h 참조
-    if(errorType != NewManAdSuccess) {
-        AX_LOG(AXLogLevelDebug, @"MAN - didFailReceiveAd");
-        
-        NSString *errorMsg = @"";
-        switch (errorType) {
-            case NewManAdRequestError:
-                errorMsg    = @"NewManAdRequestError (-1002)";
-                break;
-            case NewManAdParameterError:
-                errorMsg    = @"NewManAdParameterError (-2002)";
-                break;
-            case NewManAdIDError:
-                errorMsg    = @"NewManAdIDError (-3002)";
-                break;
-            case NewManAdNotError:
-                errorMsg    = @"NewManAdNotError (-4002)";
-                break;
-            case NewManAdServerError:
-                errorMsg    = @"NewManAdServerError (-5002)";
-                break;
-            case NewManAdNetworkError:
-                errorMsg    = @"NewManAdNetworkError (-6002)";
-                break;
-            case NewManAdCreativeError:
-                errorMsg    = @"NewManAdCreativeError (-9001)";
-                break;
-        }
+    // 광고로딩 실패시
+    if(errorType < 0 || errorType > 400) {
         [self fireFailedToReceiveAdWithError:[AXError errorWithCode:AX_ERR_ADAPTER message:errorMsg]];
     }
     
-}
-- (void) didCloseRandingPage:(ADBanner*)adBanner {
-    // 배너광고 클릭시 나타났던 랜딩 페이지가 닫힐 경우 호출
-    AX_LOG(AXLogLevelDebug, @"MAN - didCloseRandingPage");
-}
-
-#pragma mark ManInterstitialDelegate
--(void)didReceiveInterstitial {
-    // 전면광고 수신 성공
-    AX_LOG(AXLogLevelDebug, @"MAN - didReceiveInterstitial");
-    [self fireSucceededToReceiveAd];
-    [self fireDisplayedInterstitialAd];
-}
--(void)didFailReceiveInterstitial :(NSInteger)errorType {
-    // 전면광고 수신에러
-    if(errorType != NewManAdSuccess) {
-        AX_LOG(AXLogLevelDebug, @"MAN - didFailReceiveInterstitial");
-        NSString *errorMsg = @"";
-        switch (errorType) {
-            case NewManAdRequestError:
-                errorMsg    = @"NewManAdRequestError (-1002)";
-                break;
-            case NewManAdParameterError:
-                errorMsg    = @"NewManAdParameterError (-2002)";
-                break;
-            case NewManAdIDError:
-                errorMsg    = @"NewManAdIDError (-3002)";
-                break;
-            case NewManAdNotError:
-                errorMsg    = @"NewManAdNotError (-4002)";
-                break;
-            case NewManAdServerError:
-                errorMsg    = @"NewManAdServerError (-5002)";
-                break;
-            case NewManAdNetworkError:
-                errorMsg    = @"NewManAdNetworkError (-6002)";
-                break;
-            case NewManAdCreativeError:
-                errorMsg    = @"NewManAdCreativeError (-9001)";
-                break;
-
-        }
-        [self fireFailedToReceiveAdWithError:[AXError errorWithCode:AX_ERR_ADAPTER message:errorMsg]];
+    // 전면배너 광고닫기시
+    if(self.isInterstitial == 1 && errorType == NewManAdClose) {
+        [self fireOnClosedInterstitialAd];
     }
+    
 }
--(void)didCloseInterstitial {
-    // 전면광고 닫힘
-    AX_LOG(AXLogLevelDebug, @"MAN - didCloseInterstitial");
-    [self fireOnClosedInterstitialAd];
+
+- (void)didBlockReloadAd:(ManBanner *)adBanner {
+    
 }
 
 @end

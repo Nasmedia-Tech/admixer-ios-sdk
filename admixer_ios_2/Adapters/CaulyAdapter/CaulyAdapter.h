@@ -1,10 +1,5 @@
 //
 //  CaulyAdapter.h
-//  AdMixerTest
-//
-//  Created by Eric Yeohoon Yoon on 12. 9. 10..
-//
-// v3.1.0
 
 #import "AdMixerAdAdapter.h"
 #import "CaulyAdView.h"

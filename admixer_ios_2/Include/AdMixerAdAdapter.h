@@ -74,6 +74,4 @@
 - (BOOL)canUseInterstitialPopupType;
 - (BOOL)displayInterstital;
 
-- (NSString *)getAdRequestTime;
-
 @end

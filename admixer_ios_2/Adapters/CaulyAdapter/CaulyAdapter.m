@@ -1,10 +1,5 @@
 //
 //  CaulyAdapter.m
-//  AdMixerTest
-//
-//  Created by Eric Yeohoon Yoon on 12. 9. 10..
-//
-// 
 
 #import "CaulyAdapter.h"
 #import "AXLog.h"
@@ -37,7 +32,6 @@
         [CaulyAdSetting setLogLevel:CaulyLogLevelAll];
         CaulyAdSetting * adSetting = [CaulyAdSetting globalSetting];
         adSetting.animType = CaulyAnimNone;
-        adSetting.useGPSInfo = NO;
         adSetting.useDynamicReloadTime = NO;
         adSetting.reloadTime = CaulyReloadTime_120;
         adSetting.appCode = _appCode;
