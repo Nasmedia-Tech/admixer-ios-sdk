@@ -5,16 +5,20 @@
 
 ## AdMixer SDK Support Mediation Version
 
-|---|:---:|---:|:---:|:---:|
-| `AdMixer` | 2.1.0 | 2020.05.06 | O | [다운로드](http://admixer.co.kr/)
-| `Adfit` | 3.0.10 | 2020.05.06 | O | [다운로드](https://github.com/adfit/adfit-ios-sdk)
-| `Admob` | 7.58.0 | 2020.05.06 | O | [다운로드](https://developers.google.com/admob/ios)
-| `Cauly` | 3.1.8 | 2020.05.06 | O | [다운로드](https://github.com/cauly/iOS-SDK)
-| `Facebook` | 5.8.0 | 2020.05.06 | O | [다운로드](https://developers.facebook.com/docs/app-events/getting-started-app-events-ios)
-| `DawinClick` | 3.7.0 | 2020.05.06 | O | [다운로드](https://click.dawin.tv/poc/#/sdk)
-| `MANPLUS` | 110 | 2020.05.06 | O | [다운로드](http://docs.meba.kr/s-plus/sdk/ios)
-| `Mopub` | 5.12.1 | 2020.05.06 | O | [다운로드](https://developers.mopub.com/publishers/ios)
-| `Smatto` | 21.3.3 | 2020.05.06 | O | [다운로드](https://www.smaato.com/resources/sdks/)
+
+| AdNetwork | Version | Check Date | compatible | download
+|---|:---:|:---:|:---:|---:|
+| `AdMixer` | 2.1.0 | 2020.05.06 | O | [다운로드](http://admixer.co.kr/) |
+| `Adfit` | 3.0.10 | 2020.05.06 | O | [다운로드](https://github.com/adfit/adfit-ios-sdk) |
+| `Admob` | 7.58.0 | 2020.05.06 | O | [다운로드](https://developers.google.com/admob/ios) |
+| `Cauly` | 3.1.8 | 2020.05.06 | O | [다운로드](https://github.com/cauly/iOS-SDK) |
+| `Facebook` | 5.8.0 | 2020.05.06 | O | [다운로드](https://developers.facebook.com/docs/app-events/getting-started-app-events-ios) |
+| `DawinClick` | 3.7.0 | 2020.05.06 | O | [다운로드](https://click.dawin.tv/poc/#/sdk) |
+| `MANPLUS` | 110 | 2020.05.06 | O | [다운로드](http://docs.meba.kr/s-plus/sdk/ios) |
+| `Mopub` | 5.12.1 | 2020.05.06 | O | [다운로드](https://developers.mopub.com/publishers/ios) |
+| `Smatto` | 21.3.3 | 2020.05.06 | O | [다운로드](https://www.smaato.com/resources/sdks/) |
+
+
 
 ## Step 1. 개요
 
@@ -75,25 +79,25 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 4. __iOS 9 업데이트에 따른 추가 설정__
   - 프로젝트 설정의 Build Settings에서 Enable Bitcode를 NO로 설정해야 합니다.
   - __ATS(App Transport Security) 처리__ : iOS9부터 애플 보안 정책에 따라 암호화 되지 않은 HTTP 통신이 차단되어 광고에 영향을 줄 수 있습니다. 따라서 프로젝트 내ㅐ에 프로젝트명-info.plist 파일에 아래 내용을 추가해주시기 바랍니다.
-   1) NSAppTransportSecurity(Type: Dictionary) 항목을 생성
-   2) 하위에 NSAllowsArbitraryLoads(Type: Boolean) 아이템을 생성하여 YES로 설정합니다. 해당 설정을 통해 앱 내 모든 HTTP 통신을 허용할 수 있습니다. (For iOS 9 and Later)
+    1) NSAppTransportSecurity (Type: Dictionary) 항목을 생성
+    2) 하위에 NSAllowsArbitraryLoads (Type: Boolean) 아이템을 생성하여 YES로 설정합니다. 해당 설정을 통해 앱 내 모든 HTTP 통신을 허용할 수 있습니다. (For iOS 9 and Later)
 
-  ```
-  <key>NSAppTransportSecurity</key>
-  <dict>
-    <key>NSAllowsArbitraryLoads</key>
-    <true/>
-  </dict>
+    ```
+    <key>NSAppTransportSecurity</key>
+    <dict>
+      <key>NSAllowsArbitraryLoads</key>
+      <true/>
+    </dict>
 
-  ```
+    ```
 
 5. __2017년 iOS 10 업데이트에 따른 ATS 추가 설정__
   - __ATS(App Transport Security) 처리__
   : 2017년부터 ATS를 활성화하도록 보안이 강화되었습니다. 따라서, 기존 설정에 추가적인 옵션값이 필요합니다.
   (단, Ad Network에 따라 HTTPS 지원현황에 차이가 있을 수 있으므로, 반드시 각 Ad Network 가이드 내 ATS 설정값을 확인바랍니다.)
     1) 기존 설정대로 NSAllowsArbitraryLoads 아이템을 YES로 설정합니다. (For iOS 9 and Later)
-    2) NSAllowsArbitraryLoadsForMedia(Type: Boolean) 아이템을 생성하여 YES로 설정합니다. (For iOS10)
-    3) NSAllowsArbitraryLoadsInWebContent(Type: Boolean) 아이템을 생성하여 YES로 설정합니다.
+    2) NSAllowsArbitraryLoadsForMedia (Type: Boolean) 아이템을 생성하여 YES로 설정합니다. (For iOS10)
+    3) NSAllowsArbitraryLoadsInWebContent (Type: Boolean) 아이템을 생성하여 YES로 설정합니다.
     (admixer 배너 사용 시 권장하는 설정값이나, 웹뷰에서만 HTTP를 허용하는 값이므로 사용하시는 Ad Network에 따른 설정이 필요한 부분입니다.)
 
     ```
@@ -112,10 +116,9 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 
 * 다음 Framework가 포함되어 있는지 확인하시기 바랍니다.
 
-![필요한 설정](https://github.com/Nasmedia-Tech/admixer-ios-sdk/tree/master/admixer_ios_2/images/import.png)
+![필요한 설정](https://github.com/Nasmedia-Tech/admixer-ios-sdk/blob/master/admixer_ios_2/images/import.PNG)
 
 * 자세한 내용은 해당 Ad Network사가 배포하는 기술문서를 참고하시기 바랍니다.
-
 
 ##### (자세한 사항 각 미디에이션 가이드 및 샘플 프로젝트 소스코드를 참조하십시오.)
 
@@ -163,8 +166,8 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 
 ## Step 5. Banner 광고 추가 예제 - 광고 뷰 추가
 
-- Banner광고를 위해서는 AdMixerViewDelegate 구현하셔야 합니다.
-- Banner광고를 담는 AdMixerView가 필요합니다.
+- Banner 광고를 위해서는 AdMixerViewDelegate 구현하셔야 합니다.
+- Banner 광고를 담는 AdMixerView가 필요합니다.
 
 ```objc
 @interface ViewController : UIViewController<AdMixerViewDelegate, AdMixerInterstitialDelegate> {
@@ -226,7 +229,6 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 ```
 
 
-
 ## Step 6. Interstitial 광고 추가 예제
 
 - 전면광고에는 두 가지 형태가 제공됩니다.
@@ -234,7 +236,7 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 
 | 일반 전면광고 예시 | 팝업형 전면광고 예시
 |:---:|:---:|
-|![일반 전면광고 예시](https://github.com/Nasmedia-Tech/admixer-ios-sdk/tree/master/admixer_ios_2/images/Interstitial_ads.png) |![팝업형 전면광고 예시](https://github.com/Nasmedia-Tech/admixer-ios-sdk/tree/master/admixer_ios_2/images/Interstitial_popup_ads.png)
+|![일반 전면광고 예시](https://github.com/Nasmedia-Tech/admixer-ios-sdk/blob/master/admixer_ios_2/images/Interstitial_ads.png) |![팝업형 전면광고 예시](https://github.com/Nasmedia-Tech/admixer-ios-sdk/blob/master/admixer_ios_2/images/Interstitial_popup_ads.png)
 
 ### 6-1 Interstitial 광고(전면광고) 추가 예제 - 광고 뷰 추가
 
@@ -243,7 +245,7 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 - startWithAdInfoAPI를 호출하시면 onSucceededToReceiveInterstitalAd 이벤트와 동시에 자동적으로 전면광고가 표시됩니다.
 - loadWithAdInfo API를 호출하시면 onSucceededToReceiveInterstitalAd 이벤트를 받아서 광고로딩이 성공하면 원하는시점에 displayAd API로 전면광고를 노출하게 됩니다.
 - loadWithAdInfo 지원 Ad Network : Admob, Cauly, DawinClick(SyrupAd, T-ad), Facebook, Mopub(다른 AdNetwork는 loadWithAdInfo 호출 시 로드하지 않습니다.)
-- loadWithAdInfo API를 호출하고 일정시간이 지나면, 광고가 노출이 되어도 유효노출로 처리되지 않는 경우가 있습니다. 이 경우는 ad network별로 다르므로, 해당 네트워크 사에 확인하여 loadWithAdInfo 호출 후 적절한 타임아웃을 걸어서 재호출 하는 방식으로 사용하시기 바랍니다. 최소호출간격이 있는 경우도 있으므로, 적당한 타임아웃을 설정하시기 바랍니다. (ex. AdMob 광고노출인증유효시간 20분)
+- loadWithAdInfo API를 호출하고 일정시간이 지나면, 광고가 노출이 되어도 유효노출로 처리되지 않는 경우가 있습니다. 이 경우는 ad network별로 다르므로, 해당 네트워크 사에 확인하여 loadWithAdInfo 호출 후 적절한 타임아웃을 걸어서 재호출 하는 방식으로 사용하시기 바랍니다. 최소호출간격이 있는 경우도 있으므로, 적당한 타임아웃을 설정하시기 바랍니다. (ex. AdMob 광고노출 인증 유효시간 20분)
 
 - 아래 코드는 Interstitial 광고를 추가한 예제입니다.
 
@@ -251,27 +253,27 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 @property(nonatomic, strong) AdMixerInterstitial* interstitial;
 - (IBAction)interstitialAdButtonAction:(id)sender {
   AdMixerInfo* adInfo= [[[AdMixerInfoalloc] init] autorelease];
-  adInfo.adunitID= @"my_adunit_id"; // adunitid값을설정합니다.
-  // adInfo.interstitialTimeout= 20; // 전면요청timeout설정(Default값은0으로서버에서주는시간으로처리)
-  // adInfo.setBackgroundAlpha= YES; // 전면노출시광고외영역반투명처리(Default값은NO)
+  adInfo.adunitID= @"my_adunit_id"; // adunitid값을 설정합니다.
+  // adInfo.interstitialTimeout= 20; // 전면요청 timeout설정(Default값은 0으로 서버에서 주는 시간으로 처리)
+  // adInfo.setBackgroundAlpha= YES; // 전면노출시 광고 외 영역반 투명처리(Default값은NO)
 
-  //팝업형전면광고설정코드(선택사항)
-  AdMixerInterstitialPopupOption*adConfig= [[AdMixerInterstitialPopupOptionalloc] init]; // 팝업형전면광고옵션설정
+  //팝업형 전면광고 설정 코드(선택사항)
+  AdMixerInterstitialPopupOption*adConfig= [[AdMixerInterstitialPopupOptionalloc] init]; // 팝업형 전면광고 옵션 설정
   [adConfigsetButton:@”광고종료” withButtonColor:[UIColorwhiteColor]];
-  // 광고를닫는기능의버튼이제공되며, 버튼문구와버튼색상을지정가능(버튼문구Default값은‘광고종료’)
+  // 광고를 닫는 기능의 버튼이 제공되며, 버튼문구와 버튼색상을 지정가능(버튼문구 Default값은‘광고종료’)
   [adConfigsetButtonFrameColor:[UIColorblackColor]]; // 버튼프레임색상을지정가능
   [adInfosetInterstitialAdType:AdMixerInterstitialPopupTypewithInterstitialPopupOption:adConfig];
-  // 팝업형전면광고option을adInfo에적용(optionnil로설정시Default option으로제공됨)
-  // AdMixerInterstitialBasicType: 일반(Default),AdMixerInterstitialPopupType: 팝업형
+  // 팝업형 전면광고 option을 adInfo에 적용(optionnil로 설정시 Default option으로 제공됨)
+  // AdMixerInterstitialBasicType: 일반(Default), AdMixerInterstitialPopupType: 팝업형
 
-  // 전면광고는1회성객체이며,
-  // adunit_id와1:1 매핑되므로광고호출시자원이남아있으면명시적으로해제함
+  // 전면광고는 1회성 객체이며,
+  // adunit_id와 1:1 매핑되므로 광고호출시 자원이 남아있으면 명시적으로 해제함
   [self stopInterstitial];
 
   interstitial = [[AdMixerInterstitialalloc] init];
   interstitial.delegate= self;
-  [interstitial startWithAdInfo:adInfobaseViewController:self];//광고로딩시바로표시
-  //[interstitial loadWithAdInfo:adInfobaseViewController:self];//광고로딩후원하는시점에displayAd를호출
+  [interstitial startWithAdInfo:adInfobaseViewController:self];//광고로딩시 바로 표시
+  //[interstitial loadWithAdInfo:adInfobaseViewController:self]; //광고로딩 후원하는 시점에 displayAd를 호출
 }
 - (void)stopInterstitial {
   if(interstitial != nil) {
@@ -304,7 +306,7 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 • onFailedToReceiveInterstitialAd는 광고받기에 실패한 경우 호출됩니다.
 • onClosedInterstitialAd는 전면광고창이 닫혔을 때에 호출됩니다.
 • onDisplayedInterstitialAd는 전면광고가 화면에 보여졌을 때에 호출됩니다. (선택사항)
-• onClickedPopupButton은 팝업형 전면광고버튼을 누르면 호출됩니다. (선택사항)
+• onClickedPopupButton은 팝업형 전면광고 버튼을 누르면 호출됩니다. (선택사항)
 
 ```
 
@@ -322,16 +324,16 @@ NSTimer*timer;
   NSLog(@"onDisplayedInterstitialAd");
   timer = [NSTimerscheduledTimerWithTimeInterval:5 target:self
   selector:@selector(closeInterstiail) userInfo:nilrepeats:NO];
-  // 전면광고노출후5초타이머설정
+  // 전면광고 노출 후 5초 타이머 설정
 }
 
 -(void)onClosedInterstitialAd:(AdMixerInterstitial*)intersitital{NSLog(@"onClosedInterstitialAd");
-  [timer invalidate]; // 타이머해제
+  [timer invalidate]; // 타이머 해제
 }
 
 -(void)closeInterstitial{
   If(_interstitial) {
-    [_interstitial close]; // 전면광고닫기
+    [_interstitial close]; // 전면광고 닫기
     _interstitial = nil;
   }
 }
@@ -359,13 +361,13 @@ NSTimer*timer;
 
 // For Man
 [adInfosetAdapterAdInfo:ADAPTER_MANinfoKey:@”appID” withStringInfoValue:@””]; // 필수
-  - Man 배너호출시, 파라미터appID(=앱스토어appID)를설정
+  - Man 배너호출시, 파라미터 appID(=앱스토어appID)를설정
   - Default : “”
 [adInfosetAdapterAdInfo:ADAPTER_MANinfoKey:@”appName” withStringInfoValue:@””]; // 필수
-  - Man 배너호출시, 파라미터appName(=앱명–영문으로기입)를설정
+  - Man 배너호출시, 파라미터 appName(=앱명–영문으로기입)를설정
   - Default : “”
 [adInfosetAdapterAdInfo:ADAPTER_MANinfoKey:@”storeURL” withStringInfoValue:@””]; // 필수
-  - Man 배너호출시, 파라미터storeURL(=앱의실제store url)를설정
+  - Man 배너호출시, 파라미터 storeURL(=앱의실제store url)를설정
   - Default : “”
 
 // For Facebook
@@ -403,7 +405,7 @@ NSTimer*timer;
   - 기본으로 포함되어 있는 libAdMixer.a 라이브러리는 디바이스 전용 라이브러리입니다. 상위 폴더에 있는 libAdMixer_Combo.a 라이브러리로 교체하시면 됩니다.
 
 * ARC(Automatic Reference Counting)설정이 되어 있지 않은 것 같습니다.
-  - ARC는 빌드 시에 소스파일(.m)에 적용하는 옵션으로 라이브러리 자체에는 ARC 적용에 따른 차이는 없습니다. ARC가 적용된 프로젝트 혹은 소스에서는 AdMixer 관련 Class 사용 시 retain, release를 호출하실 필요가 없고,ARC가 적용되지 않은 소스에서는 반드시 retain, release를 적절하게 호출해 주셔야 합니다. 다만, ARC 프로젝트내에서 각 adapter(.m) 파일을 import하여 사용하실때는 build phases에서 compile sources에 있는 adapter(.m)파일마다-fno-objc-arc 옵션값을 설정하시기 바랍니다.
+  - ARC는 빌드 시에 소스파일(.m)에 적용하는 옵션으로 라이브러리 자체에는 ARC 적용에 따른 차이는 없습니다. ARC가 적용된 프로젝트 혹은 소스에서는 AdMixer 관련 Class 사용 시 retain, release를 호출하실 필요가 없고, ARC가 적용되지 않은 소스에서는 반드시 retain, release를 적절하게 호출해 주셔야 합니다. 다만, ARC 프로젝트내에서 각 adapter(.m) 파일을 import하여 사용하실때는 build phases에서 compile sources에 있는 adapter(.m)파일마다-fno-objc-arc 옵션값을 설정하시기 바랍니다.
 
 * 라이브러리 크기를 줄일 수 있습니까?
   - 모든 광고를 적용하시는 편이 표시할 광고가 없는 상황을 줄일 수 있기 때문에 가급적이면 모든 광고를 포함하시는 편이 좋겠지만 프로그램 크기가 커져서 문제가 되신다면 꼭 필요한 Ad Network를 결정하시고 불필요한 adapter를 삭제하시고, 필요한 Ad Network adapter만 등록하시면 됩니다.
