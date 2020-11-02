@@ -113,7 +113,7 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 
 * 다음 Framework가 포함되어 있는지 확인하시기 바랍니다.
 
-![필요한 설정](https://github.com/Nasmedia-Tech/admixer-ios-sdk/blob/master/admixer_ios_2/images/import.PNG)
+![필요한 설정](https://github.com/Nasmedia-Tech/admixer-ios-sdk/blob/master/images/import.PNG)
 
 * 자세한 내용은 해당 Ad Network사가 배포하는 기술문서를 참고하시기 바랍니다.
 
@@ -233,7 +233,7 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 
 | 일반 전면광고 예시 | 팝업형 전면광고 예시
 |:---:|:---:|
-|![일반 전면광고 예시](https://github.com/Nasmedia-Tech/admixer-ios-sdk/blob/master/admixer_ios_2/images/Interstitial_ads.png) |![팝업형 전면광고 예시](https://github.com/Nasmedia-Tech/admixer-ios-sdk/blob/master/admixer_ios_2/images/Interstitial_popup_ads.png)
+|![일반 전면광고 예시](https://github.com/Nasmedia-Tech/admixer-ios-sdk/blob/master/images/Interstitial_ads.png) |![팝업형 전면광고 예시](https://github.com/Nasmedia-Tech/admixer-ios-sdk/blob/master/images/Interstitial_popup_ads.png)
 
 ### 6-1 Interstitial 광고(전면광고) 추가 예제 - 광고 뷰 추가
 
