@@ -1,0 +1,217 @@
+{
+  "company_name": "Nasmedia",
+  "company_domain": "nasmedia.co.kr",
+  "company_address": "Samil Plaza, 14, Dogok-ro 1-gil, Gangnam-gu, Seoul, Korea",
+  "skadnetwork_ids": [
+    {
+      "skadnetwork_id": "8s468mfl3y.skadnetwork",
+      "entity_name": "RTBhouse",
+      "entity_domain": "rtbhouse.com"
+    },
+    {
+      "skadnetwork_id": "p78axxw29g.skadnetwork",
+      "entity_name": "A9.com, Inc",
+      "entity_domain": "amazon.com"
+    },
+    {
+      "skadnetwork_id": "4fzdc2evr5.skadnetwork",
+      "entity_name": "Aarki",
+      "entity_domain": "aarki.com"
+    },
+    {
+      "skadnetwork_id": "4pfyvq9l8r.skadnetwork",
+      "entity_name": "AdColony",
+      "entity_domain": "adcolony.com"
+    },
+    {
+      "skadnetwork_id": "ydx93a7ass.skadnetwork",
+      "entity_name": "Adikteev",
+      "entity_domain": "adikteev.com"
+    },
+    {
+      "skadnetwork_id": "v72qych5uu.skadnetwork",
+      "entity_name": "Appier",
+      "entity_domain": "appier.com"
+    },
+    {
+      "skadnetwork_id": "6xzpu9s2p8.skadnetwork",
+      "entity_name": "AppLift",
+      "entity_domain": "applift.com"
+    },
+    {
+      "skadnetwork_id": "mlmmfzh3r3.skadnetwork",
+      "entity_name": "Appreciate",
+      "entity_domain": "appreciate.mobi"
+    },
+    {
+      "skadnetwork_id": "c6k4g5qg8m.skadnetwork",
+      "entity_name": "Beeswax",
+      "entity_domain": "beeswax.com"
+    },
+    {
+      "skadnetwork_id": "wg4vff78zm.skadnetwork",
+      "entity_name": "BidMachine, Inc",
+      "entity_domain": "bidmachine.io"
+    },
+    {
+      "skadnetwork_id": "g28c52eehv.skadnetwork",
+      "entity_name": "BidSlash",
+      "entity_domain": "zynga.com"
+    },
+    {
+      "skadnetwork_id": "523jb4fst2.skadnetwork",
+      "entity_name": "Bidsopt",
+      "entity_domain": "bidsopt.com"
+    },
+    {
+      "skadnetwork_id": "ggvn48r87g.skadnetwork",
+      "entity_name": "Blis Media",
+      "entity_domain": "blis.com"
+    },
+    {
+      "skadnetwork_id": "3sh42y64q3.skadnetwork",
+      "entity_name": "Centro Inc.",
+      "entity_domain": "centro.net"
+    },
+    {
+      "skadnetwork_id": "f38h382jlk.skadnetwork",
+      "entity_name": "Chartboost, Inc",
+      "entity_domain": "chartboost.com"
+    },
+    {
+      "skadnetwork_id": "24t9a8vw3c.skadnetwork",
+      "entity_name": "Cheetah Medialink HK Limited",
+      "entity_domain": "cmcm.com"
+    },
+    {
+      "skadnetwork_id": "hs6bdukanm.skadnetwork",
+      "entity_name": "Criteo",
+      "entity_domain": "criteo.com"
+    },
+    {
+      "skadnetwork_id": "prcb7njmu6.skadnetwork",
+      "entity_name": "CrossInstall (Twitter)",
+      "entity_domain": "crossinstall.com"
+    },
+    {
+      "skadnetwork_id": "9nlqeag3gk.skadnetwork",
+      "entity_name": "Edge",
+      "entity_domain": "edge226.com"
+    },
+    {
+      "skadnetwork_id": "cj5566h2ga.skadnetwork",
+      "entity_name": "EngageBDR",
+      "entity_domain": ""
+    },
+    {
+      "skadnetwork_id": "ejvt5qm6ak.skadnetwork",
+      "entity_name": "Geofy",
+      "entity_domain": "geofy.ai"
+    },
+    {
+      "skadnetwork_id": "cstr6suwn9.skadnetwork",
+      "entity_name": "Google LLC",
+      "entity_domain": ""
+    },
+    {
+      "skadnetwork_id": "wzmmz9fp6w.skadnetwork",
+      "entity_name": "InMobi",
+      "entity_domain": "inmobi.com"
+    },
+    {
+      "skadnetwork_id": "yclnxrl5pm.skadnetwork",
+      "entity_name": "Jampp",
+      "entity_domain": "jampp.com"
+    },
+    {
+      "skadnetwork_id": "4468km3ulz.skadnetwork",
+      "entity_name": "Kayzen",
+      "entity_domain": "kayzen.io"
+    },
+    {
+      "skadnetwork_id": "7ug5zh24hu.skadnetwork",
+      "entity_name": "Liftoff",
+      "entity_domain": "liftoff.io"
+    },
+    {
+      "skadnetwork_id": "5lm9lj6jb7.skadnetwork",
+      "entity_name": "Loopme",
+      "entity_domain": "loopme.com"
+    },
+    {
+      "skadnetwork_id": "zmvfpc5aq8.skadnetwork",
+      "entity_name": "Maiden Marketing Pvt Ltd.",
+      "entity_domain": "pokkt.com"
+    },
+    {
+      "skadnetwork_id": "9rd848q2bz.skadnetwork",
+      "entity_name": "manage.com",
+      "entity_domain": "criteo.com"
+    },
+    {
+      "skadnetwork_id": "feyaarzu9v.skadnetwork",
+      "entity_name": "Manplus",
+      "entity_domain": "http://www.mezzomedia.co.kr/"
+    },
+    {
+      "skadnetwork_id": "9t245vhmpl.skadnetwork",
+      "entity_name": "MOLOCO",
+      "entity_domain": "molocoads.com"
+    },
+    {
+      "skadnetwork_id": "tl55sbb4fm.skadnetwork",
+      "entity_name": "PubNative GmbH",
+      "entity_domain": "pubnative.net"
+    },
+    {
+      "skadnetwork_id": "7rz58n8ntl.skadnetwor",
+      "entity_name": "Mediasmart",
+      "entity_domain": "mediasmart.io"
+    },
+    {
+      "skadnetwork_id": "n9x2a789qt.skadnetwork",
+      "entity_name": "MyTarget",
+      "entity_domain": "my.com"
+    },
+    {
+      "skadnetwork_id": "2u9pt9hc89.skadnetwork",
+      "entity_name": "Remerge",
+      "entity_domain": "remerge.io"
+    },
+    {
+      "skadnetwork_id": "5a6flpkh64.skadnetwork",
+      "entity_name": "RevX",
+      "entity_domain": "revx.io"
+    },
+    {
+      "skadnetwork_id": "8s468mfl3y.skadnetwork",
+      "entity_name": "RTBHouse",
+      "entity_domain": "rtbhouse.com"
+    },
+    {
+      "skadnetwork_id": "glqzh8vgby.skadnetwork",
+      "entity_name": "Sabio",
+      "entity_domain": "sabio.inc"
+    },
+    {
+      "skadnetwork_id": "424m5254lk.skadnetwork",
+      "entity_name": "snap.com",
+      "entity_domain": "Snap Inc."
+    },
+    {
+      "skadnetwork_id": "5l3tpt7t6e.skadnetwork",
+      "entity_name": "StartApp Inc",
+      "entity_domain": "startapp.com"
+    },
+    {
+      "skadnetwork_id": "uw77j35x4d.skadnetwork",
+      "entity_name": "The Trade Desk",
+      "entity_domain": "thetradedesk.com"
+    },
+    {
+      "skadnetwork_id": "gta9lk7p23.skadnetwork",
+      "entity_name": "Vungle",
+      "entity_domain": "vungle.com"
+    }
+  ]
+}
