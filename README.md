@@ -8,7 +8,7 @@
 
 | AdNetwork | Version | Check Date | compatible | download
 |---|:---:|:---:|:---:|---:|
-| `AdMixer` | 2.1.0 | 2020.05.06 | O | [다운로드](http://admixer.co.kr/) |
+| `AdMixer` | 2.1.0 | 2020.05.06 | O | [다운로드](https://github.com/Nasmedia-Tech/admixer-ios-sdk/archive/refs/heads/master.zip) |
 | `Adfit` | 3.0.10 | 2020.05.06 | O | [다운로드](https://github.com/adfit/adfit-ios-sdk) |
 | `Admob` | 7.58.0 | 2020.05.06 | O | [다운로드](https://developers.google.com/admob/ios) |
 | `Cauly` | 3.1.8 | 2020.05.06 | O | [다운로드](https://github.com/cauly/iOS-SDK) |
