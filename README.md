@@ -6,8 +6,8 @@
 ## AdMixer SDK Support Mediation Version
 
 
-| AdNetwork | Version | Check Date | compatible | download
-|---|:---:|:---:|:---:|---:|
+| AdNetwork | Version | Check Date | compatible | Link
+|---|:---:|:---:|:---:|:---:|
 | `AdMixer` | 2.1.0 | 2020.05.06 | O | [Link](https://github.com/Nasmedia-Tech/admixer-ios-sdk/archive/refs/heads/master.zip) |
 | `Adfit` | 3.0.10 | 2020.05.06 | O | [Link](https://github.com/adfit/adfit-ios-sdk) |
 | `Admob` | 7.58.0 | 2020.05.06 | O | [Link](https://developers.google.com/admob/ios) |
