@@ -6,20 +6,12 @@
 - Admixer Android SDK Sample Project   
 - Current Admixer SDK Version 2.1.0 / date. 2020.05.06
 
-## AdMixer SDK Support Mediation Version
+## AdMixer SDK Version
 
 
 | AdNetwork | Version | Check Date | compatible | Link
 |---|:---:|:---:|:---:|:---:|
 | `AdMixer` | 2.1.0 | 2020.05.06 | O | [Link](https://github.com/Nasmedia-Tech/admixer-ios-sdk/archive/refs/heads/master.zip) |
-| `Adfit` | 3.0.10 | 2020.05.06 | O | [Link](https://github.com/adfit/adfit-ios-sdk) |
-| `Admob` | 7.58.0 | 2020.05.06 | O | [Link](https://developers.google.com/admob/ios) |
-| `Cauly` | 3.1.8 | 2020.05.06 | O | [Link](https://github.com/cauly/iOS-SDK) |
-| `Facebook` | 5.8.0 | 2020.05.06 | O | [Link](https://developers.facebook.com/docs/app-events/getting-started-app-events-ios) |
-| `DawinClick` | 3.7.0 | 2020.05.06 | O | [Link](https://click.dawin.tv/poc/#/sdk) |
-| `MANPLUS` | 110 | 2020.05.06 | O | [Link](http://docs.meba.kr/s-plus/sdk/ios) |
-| `Mopub` | 5.12.1 | 2020.05.06 | O | [Link](https://developers.mopub.com/publishers/ios) |
-| `Smatto` | 21.3.3 | 2020.05.06 | O | [Link](https://www.smaato.com/resources/sdks/) |
 
 
 
@@ -60,16 +52,6 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
   - libAdMixer.a 파일과 유사하나 시뮬레이터 빌드에서도 동작합니다.
   - 이 라이브러리를 사용하시려면 Include의 libAdMixer.a 파일 대신 이 파일을 프로젝트에 포함하시면 됩니다.
   - 이 라이브러리로 빌드 시에는 앱의 크기가 1~2MB 정도 커질 수 있습니다.
-
-* Adapters : 포함시키고자 하는 Ad Network의 adapter를 선별하시어 프로젝트에 포함시키시면 됩니다.
-  - AdfitAdapter
-  - AdmobAdapter
-  - CaulyAdapter
-  - DawinClickAdapter
-  - FacebookAdapter
-  - ManAdapter
-  - MopubAdapter
-  - SmaatoAdapter
 
 * AdMixerSample: AdMixer iOS SDK 사용 예제
 
@@ -133,16 +115,6 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
   // 로그 레벨 설정
   [AdMixersetLogLevel:AXLogLevelDebug];
 
-  // 필요한 adapter 등록
-  [AdMixerregisterAdapter:ADAPTER_ADFITcls:[AdfitAdapterclass]];
-  [AdMixerregisterAdapter:ADAPTER_ADMOBcls:[AdmobAdapterclass]];
-  [AdMixerregisterAdapter:ADAPTER_CAULYcls:[CaulyAdapterclass]];
-  [AdMixerregisterAdapter:ADAPTER_DAWIN_CLICKcls:[DawinClickAdapterclass]];
-  [AdMixerregisterAdapter:ADAPTER_FACEBOOKcls:[FacebookAdapterclass]];
-  [AdMixerregisterAdapter:ADAPTER_MANcls:[ManAdapterclass]];
-  [AdMixerregisterAdapter:ADAPTER_MOPUBcls:[MopubAdapterclass]];
-  [AdMixerregisterAdapter:ADAPTER_SMAATOcls:[SmaatoAdapterclass]];
-
   // AdMixer 초기화를 위해 반드시 광고호출 전에 앱에서 1회 호출해주셔야 합니다.
   // adunits 파라미터는 앱 내에서 사용할 모든 adunit id를 배열형태로 넘겨주셔야 합니다.
   [AdMixerinitWithMediaKey:mediaKeyadunits:adunits];
@@ -150,16 +122,6 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
   // COPPA(아동보호법) 관련 항목 설정값 - 선택사항
   [AdMixersetTagForChildDirectedTreatment:AX_TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE];
 
-  // Admob 적용 시에 SDK 초기화 호출이 필요
-  [[GADMobileAdssharedInstance] startWithCompletionHandler:nil];
-
-  // Mopub 적용 시에 SDK 초기화 호출이 필요
-  MPMoPubConfiguration*sdkConfig = [[MPMoPubConfigurationalloc] initWithAdUnitIdForAppInitialization:@”my_any_mopub_adunit_id”];
-  [[MoPubsharedInstance] initializeSdkWithConfiguration:sdkConfigcompletion:nil];
-
-  // Smaato 적용 시에 SDK 초기화 호출이 필요
-  SMAConfiguration*config= [[SMAConfigurationalloc] initWithPublisherId:@”my_smaato_publisher_id”];
-  [SmaatoSDKinitSDKWithConfig:config];
 
 }
 ```
@@ -188,16 +150,6 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
   _adView.center= CGPointMake(self.view.center.x, _adView.center.y);
   // 320*50사이즈 일때만, 가로를 디바이스에 맞추거나 영역사이즈로 설정하는 것 중에 선택가능
   // 320*50을 제외한 사이즈일때는 영역사이즈로 설정해야 함
-
-  // 각 애드네트워크별 광고설정값을 아래와 같이 설정할 수 있으며,
-  // adunit 사이즈에 맞게 네트워크 사이즈를 설정하시기 바랍니다. (자세한사항은 Ad Network별 추가 광고정보 설정 참고)
-  [adInfosetAdapterAdInfo:ADAPTER_ADMOBinfoKey:@”adSize” withStringInfoValue:@”kGADAdSizeBanner”];
-  [adInfosetAdapterAdInfo:ADAPTER_FACEBOOKinfoKey:@”adSize” withStringInfoValue:@”kFBAdSizeHeight50Banner”];
-  // Man의 경우, 광고요청시 필수 파라미터로 사용될
-  // appID, appName, storeURL정보를 아래와 같이 꼭 따로 설정해주셔야 정상동작합니다.
-  [adInfosetAdapterAdInfo:ADAPTER_MANinfoKey:@”appID” withStringInfoValue:@”앱스토어appID”];
-  [adInfosetAdapterAdInfo:ADAPTER_MANinfoKey:@”appName” withStringInfoValue:@”앱명–영문으로기입”];
-  [adInfosetAdapterAdInfo:ADAPTER_MANinfoKey:@”storeURL” withStringInfoValue:@”앱의실제store url”];
 
   _adView.delegate= self;
   [self.viewaddSubview:_adView];
@@ -244,8 +196,7 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 - Interstitial 광고는 1회성 객체입니다. start 혹은 load 메소드 호출은 한 번만 가능합니다.
 - startWithAdInfoAPI를 호출하시면 onSucceededToReceiveInterstitalAd 이벤트와 동시에 자동적으로 전면광고가 표시됩니다.
 - loadWithAdInfo API를 호출하시면 onSucceededToReceiveInterstitalAd 이벤트를 받아서 광고로딩이 성공하면 원하는시점에 displayAd API로 전면광고를 노출하게 됩니다.
-- loadWithAdInfo 지원 Ad Network : Admob, Cauly, DawinClick(SyrupAd, T-ad), Facebook, Mopub(다른 AdNetwork는 loadWithAdInfo 호출 시 로드하지 않습니다.)
-- loadWithAdInfo API를 호출하고 일정시간이 지나면, 광고가 노출이 되어도 유효노출로 처리되지 않는 경우가 있습니다. 이 경우는 ad network별로 다르므로, 해당 네트워크 사에 확인하여 loadWithAdInfo 호출 후 적절한 타임아웃을 걸어서 재호출 하는 방식으로 사용하시기 바랍니다. 최소호출간격이 있는 경우도 있으므로, 적당한 타임아웃을 설정하시기 바랍니다. (ex. AdMob 광고노출 인증 유효시간 20분)
+- loadWithAdInfo API를 호출하고 일정시간이 지나면, 광고가 노출이 되어도 유효노출로 처리되지 않는 경우가 있습니다. 이 경우는 ad network별로 다르므로, 해당 네트워크 사에 확인하여 loadWithAdInfo 호출 후 적절한 타임아웃을 걸어서 재호출 하는 방식으로 사용하시기 바랍니다. 최소호출간격이 있는 경우도 있으므로, 적당한 타임아웃을 설정하시기 바랍니다.
 
 - 아래 코드는 Interstitial 광고를 추가한 예제입니다.
 
@@ -312,7 +263,6 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 
 ### 6-2 Interstitial 광고 추가 예제 - 닫기 (Close)
 
-- 전면광고 close지원 Ad Network: Admixer, Housead, DawinClick
 - 전면광고가 화면에 노출되기 전에 close를 호출하게 되면 동작하지 않습니다.
 - 아래와 같이 타이머를 사용할 경우, 반드시 close delegate에서 타이머를 해제하여야 합니다. (타이머 작동 이전에 사용자가 전면광고를 끄게되면, close method가 다음 전면광고에 영향을 줄 수 있습니다.)
 
@@ -341,45 +291,7 @@ NSTimer*timer;
 
 ##### (자세한 사항 각 미디에이션 가이드 및 샘플 프로젝트 소스코드를 참조하십시오.)
 
-## Step 7. Ad Network별 추가 광고정보 설정
-- setAdapterAdInfo API는 AdNetwork 별로 제공되는 옵션을 설정하기 위한 API입니다.
-
-```objc
-[지원 옵션]
-
-// For Admob
-[adInfosetAdapterAdInfo:ADAPTER_ADMOBinfoKey:@”adSize” withStringInfoValue:@”kGADAdSizeSmartBannerPortrait”];
-  -Admob배너종류설정
-    kGADAdSizeSmartBannerPortrait, kGADAdSizeSmartBannerLandscape, kGADAdSizeBanner, kGADAdSizeMediumRectangle, kGADAdSizeFullBanner, kGADAdSizeLeaderboard
-  -Default : kGADAdSizeSmartBannerPortrait
-
-// For Cauly
-[adInfosetAdapterAdInfo:ADAPTER_CAULYinfoKey:@”adSize”withStringInfoValue:@”CaulyAdSize_IPhone”];
-  - Cauly배너종류설정
-    CaulyAdSize_IPhone, CaulyAdSize_IPadSmall, CaulyAdSize_IPadLarge
-  - Default : CaulyAdSize_IPhone
-
-// For Man
-[adInfosetAdapterAdInfo:ADAPTER_MANinfoKey:@”appID” withStringInfoValue:@””]; // 필수
-  - Man 배너호출시, 파라미터 appID(=앱스토어appID)를설정
-  - Default : “”
-[adInfosetAdapterAdInfo:ADAPTER_MANinfoKey:@”appName” withStringInfoValue:@””]; // 필수
-  - Man 배너호출시, 파라미터 appName(=앱명–영문으로기입)를설정
-  - Default : “”
-[adInfosetAdapterAdInfo:ADAPTER_MANinfoKey:@”storeURL” withStringInfoValue:@””]; // 필수
-  - Man 배너호출시, 파라미터 storeURL(=앱의실제store url)를설정
-  - Default : “”
-
-// For Facebook
-[adInfosetAdapterAdInfo:ADAPTER_FACEBOOKinfoKey:@”adSize” withStringInfoValue:@”kFBAdSizeHeight50Banner”];
-  - Facebook 배너종류설정
-  kFBAdSizeHeight50Banner, kFBAdSizeHeight90Banner, kFBAdSizeHeight250Rectangle
-  - Default : kFBAdSizeHeight50Banner
-```
-
-##### (자세한 사항 각 미디에이션 가이드 및 샘플 프로젝트 소스코드를 참조하십시오.)
-
-## Step 8. 자주하는 질문 (Q&A)
+## Step 7. 자주하는 질문 (Q&A)
 
 * 문제 확인을 위한 로그는 없나요?
   - [AdMixersetLogLevel:AXLogLevelAll];
@@ -396,7 +308,7 @@ NSTimer*timer;
   - Adunit 생성 시에 입력한 fullscreen 정보에 따라서 사용가능한 광고객체가 다릅니다. banner 객체는 fullscreen이 off 일때, interstitial 객체는 fullscreen이 on일 때 각각 사용할 수 있습니다.
 
 * Adunit에 설정한 사이즈와 다른 사이즈의 광고가 노출됩니다.
-  - Adunit에 설정한 사이즈값은 admixer와 housead의 경우는 내부적으로 사이즈가 보장되지만, 타Ad Network사의 경우, 해당 사이즈에 맞는 지면을 생성하셔서 전략에 키값을 설정하시고,  사이즈옵션이 있다면 코드상에서 setAdapterAdInfo를 통해 개별적으로 설정하셔야 정상 노출이 보장됩니다
+  - AdUnit 에 설정한 사이즈값은 AdMixer 는 내부적으로 사이즈가 보장되지만, 광고의 유형에 따라 다르게 노출 될 수 있습니다.
 
 * 한App내에서많은adunit을사용해도되나요?
   - 사용 가능한 adunit수에 제한은 없지만, 광고 객체를 설정하고 로딩하는데에 많은 메모리가 할당되기 때문에 앱 성능을 위해서 많은 광고객체 호출은 지양하시는 것이 좋습니다.
