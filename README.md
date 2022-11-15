@@ -20,18 +20,12 @@
 * 본 문서는 AdMixer iOS SDK를 프로젝트에 적용하기 위한 문서입니다.
 * AdMixer는 광고 플랫폼을 통합하여 배너 및 전면광고를 표시하는 기능을 제공합니다.
 
-* 각각의 라이브러리는 해당 사이트에서 최신버전을 받아 라이브러리를 교체하여 사용하실 수 있습니다. (제공되는 AdMixerSDK의 light버전은 Ad Network사의 SDK를 포함하고 있지 않으나, full버전은 lipo를 통해 simulator용과 release용을 합친 Ad Network 사의 SDK가 포함되어 있습니다.)
-
 * __AdMixer 퍼블리셔 사이트를 통해 미디어에 대한 정보를 등록하여 media key를 발급 받으셔야 합니다.
 미디어 하위에는 광고단위인 adunit을 생성해야 하며, adunit 생성 시 선택하신 사이즈와 fullscreen 여부에 맞게
 광고 객체의 종류와 영역 사이즈를 설정하셔야 합니다.
 Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstitial 객체로 사용이 가능합니다.__
 
 * AdMixer는 적용할 광고 플랫폼을 AdMixer 사이트를 통해 손쉽게 변경하실 수 있으며 각 광고 별 노출 비율 및 세부 설정 또한 사이트를 통해 변경하실 수 있습니다.
-
-* ‘Admixer’ 네트워크를 이용하시면 서버 연동된 다수의 dsp로부터 다양한 광고를 수신 받을 수 있습니다. 이용에 참고 부탁드립니다.
-
-* 띠배너와 전면배너 이외의 타 애드네트워크 광고를 추가하고자 하는 경우, 해당 애드네트워크 SDK 가이드를 참고하여 적용해 주시기 바랍니다.
 
 
 ## Step 2. SDK 구성
@@ -78,11 +72,10 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 5. __2017년 iOS 10 업데이트에 따른 ATS 추가 설정__
   - __ATS(App Transport Security) 처리__
   : 2017년부터 ATS를 활성화하도록 보안이 강화되었습니다. 따라서, 기존 설정에 추가적인 옵션값이 필요합니다.
-  (단, Ad Network에 따라 HTTPS 지원현황에 차이가 있을 수 있으므로, 반드시 각 Ad Network 가이드 내 ATS 설정값을 확인바랍니다.)
     1) 기존 설정대로 NSAllowsArbitraryLoads 아이템을 YES로 설정합니다. (For iOS 9 and Later)
     2) NSAllowsArbitraryLoadsForMedia (Type: Boolean) 아이템을 생성하여 YES로 설정합니다. (For iOS10)
     3) NSAllowsArbitraryLoadsInWebContent (Type: Boolean) 아이템을 생성하여 YES로 설정합니다.
-    (admixer 배너 사용 시 권장하는 설정값이나, 웹뷰에서만 HTTP를 허용하는 값이므로 사용하시는 Ad Network에 따른 설정이 필요한 부분입니다.)
+    (admixer 배너 사용 시 권장하는 설정값이나, 웹뷰에서만 HTTP를 허용하는 값 입니다.)
 
     ```
     <key>NSAppTransportSecurity</key>
@@ -182,7 +175,6 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 ## Step 6. Interstitial 광고 추가 예제
 
 - 전면광고에는 두 가지 형태가 제공됩니다.
-- 팝업형 전면광고의 경우 admixer 네트워크 전면배너만 사용 가능합니다.
 
 | 일반 전면광고 예시 | 팝업형 전면광고 예시
 |:---:|:---:|
@@ -194,7 +186,7 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 - Interstitial 광고는 1회성 객체입니다. start 혹은 load 메소드 호출은 한 번만 가능합니다.
 - startWithAdInfoAPI를 호출하시면 onSucceededToReceiveInterstitalAd 이벤트와 동시에 자동적으로 전면광고가 표시됩니다.
 - loadWithAdInfo API를 호출하시면 onSucceededToReceiveInterstitalAd 이벤트를 받아서 광고로딩이 성공하면 원하는시점에 displayAd API로 전면광고를 노출하게 됩니다.
-- loadWithAdInfo API를 호출하고 일정시간이 지나면, 광고가 노출이 되어도 유효노출로 처리되지 않는 경우가 있습니다. 이 경우는 ad network별로 다르므로, 해당 네트워크 사에 확인하여 loadWithAdInfo 호출 후 적절한 타임아웃을 걸어서 재호출 하는 방식으로 사용하시기 바랍니다. 최소호출간격이 있는 경우도 있으므로, 적당한 타임아웃을 설정하시기 바랍니다.
+- loadWithAdInfo API를 호출하고 일정시간이 지나면, 광고가 노출이 되어도 유효노출로 처리되지 않는 경우가 있습니다. 이 경우는 loadWithAdInfo 호출 후 적절한 타임아웃을 걸어서 재호출 하는 방식으로 사용하시기 바랍니다. 최소호출간격이 있는 경우도 있으므로, 적당한 타임아웃을 설정하시기 바랍니다.
 
 - 아래 코드는 Interstitial 광고를 추가한 예제입니다.
 
@@ -316,9 +308,3 @@ NSTimer*timer;
 
 * ARC(Automatic Reference Counting)설정이 되어 있지 않은 것 같습니다.
   - ARC는 빌드 시에 소스파일(.m)에 적용하는 옵션으로 라이브러리 자체에는 ARC 적용에 따른 차이는 없습니다. ARC가 적용된 프로젝트 혹은 소스에서는 AdMixer 관련 Class 사용 시 retain, release를 호출하실 필요가 없고, ARC가 적용되지 않은 소스에서는 반드시 retain, release를 적절하게 호출해 주셔야 합니다. 다만, ARC 프로젝트내에서 각 adapter(.m) 파일을 import하여 사용하실때는 build phases에서 compile sources에 있는 adapter(.m)파일마다-fno-objc-arc 옵션값을 설정하시기 바랍니다.
-
-* 라이브러리 크기를 줄일 수 있습니까?
-  - 모든 광고를 적용하시는 편이 표시할 광고가 없는 상황을 줄일 수 있기 때문에 가급적이면 모든 광고를 포함하시는 편이 좋겠지만 프로그램 크기가 커져서 문제가 되신다면 꼭 필요한 Ad Network를 결정하시고 불필요한 adapter를 삭제하시고, 필요한 Ad Network adapter만 등록하시면 됩니다.
-
-* 전면광고가 자주 나오지 않습니다.
-  - 전면 광고의 경우 배너 광고보다 광고 물량이 적어 설정하신 Ad Network가 적은 경우 광고가 나오지 않을 확률도 그 만큼 커집니다.
