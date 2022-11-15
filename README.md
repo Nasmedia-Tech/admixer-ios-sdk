@@ -54,8 +54,7 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 
 1. Admixer_ios_x.y.z.zip을 풉니다.
 2. Include 폴더를 프로젝트에 추가합니다. (AdMixer 라이브러리 추가)
-3. Adapters 폴더를 프로젝트에 추가합니다. (Adapter 추가)
-4. __iOS 9 업데이트에 따른 추가 설정__
+3. __iOS 9 업데이트에 따른 추가 설정__
   - 프로젝트 설정의 Build Settings에서 Enable Bitcode를 NO로 설정해야 합니다.
   - __ATS(App Transport Security) 처리__ : iOS9부터 애플 보안 정책에 따라 암호화 되지 않은 HTTP 통신이 차단되어 광고에 영향을 줄 수 있습니다. 따라서 프로젝트 내ㅐ에 프로젝트명-info.plist 파일에 아래 내용을 추가해주시기 바랍니다.
     1) NSAppTransportSecurity (Type: Dictionary) 항목을 생성
@@ -69,7 +68,7 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
     </dict>
     ```
 
-5. __2017년 iOS 10 업데이트에 따른 ATS 추가 설정__
+4. __2017년 iOS 10 업데이트에 따른 ATS 추가 설정__
   - __ATS(App Transport Security) 처리__
   : 2017년부터 ATS를 활성화하도록 보안이 강화되었습니다. 따라서, 기존 설정에 추가적인 옵션값이 필요합니다.
     1) 기존 설정대로 NSAllowsArbitraryLoads 아이템을 YES로 설정합니다. (For iOS 9 and Later)
@@ -98,7 +97,6 @@ Fullscreen 값을 미설정하시면 banner객체로, 설정하시면 interstiti
 ## Step 4. 모바일 광고 초기화
 
 - AdMixer 객체를 통해 반드시 1회 초기화 호출이 필요합니다.
-- AdMixer 객체를 통해 필요한 adapter들을 등록해야 합니다.
 
 ```objc
 -(BOOL)application(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {
