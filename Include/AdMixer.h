@@ -11,15 +11,6 @@
 
 #define ADAPTER_ADMIXER             (@"admixerrtb")
 #define ADAPTER_ADMIXER_HOUSE		(@"admixer")
-#define ADAPTER_ADMOB				(@"admob")
-#define ADAPTER_ADFIT               (@"adfit")
-#define ADAPTER_CAULY			    (@"cauly")
-#define ADAPTER_DAWIN_CLICK         (@"tad")
-#define ADAPTER_FACEBOOK            (@"facebook")
-#define ADAPTER_MAN                 (@"man")
-#define ADAPTER_TNK                 (@"tnk")
-#define ADAPTER_MOPUB               (@"mopub")
-#define ADAPTER_SMAATO              (@"smaato")
 
 #define AX_ERR_INIT                 (0x80000001)
 #define AX_ERR_ADUNIT               (0x80000002)
