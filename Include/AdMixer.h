@@ -10,7 +10,6 @@
 #import "AXError.h"
 
 #define ADAPTER_ADMIXER             (@"admixerrtb")
-#define ADAPTER_ADMIXER_HOUSE		(@"admixer")
 
 #define AX_ERR_INIT                 (0x80000001)
 #define AX_ERR_ADUNIT               (0x80000002)
